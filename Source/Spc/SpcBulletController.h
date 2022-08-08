@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SpcPlayerController.h"
 #include "GameFramework/Actor.h"
 #include "SpcBulletController.generated.h"
 
@@ -22,5 +23,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditAnywhere)
+	TMap<FName, UPaperSprite*> sprites;
 
 };

@@ -6,21 +6,22 @@
 #include "GameplayTagContainer.h"
 #include "PaperSpriteComponent.h"
 #include "GameFramework/Actor.h"
-#include "SpcBullet.generated.h"
+#include "SpcAsteroid.generated.h"
 
-class UPaperSprite;
 UCLASS()
-class SPC_API ASpcBullet : public AActor
+class SPC_API ASpcAsteroid : public AActor
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this actor's properties
-	ASpcBullet();
+	ASpcAsteroid();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void OnConstruction(const FTransform& Transform) override;
 
 public:
 	// Called every frame
@@ -31,7 +32,9 @@ public:
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
-						int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	                    int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTag GameplayTag;
 };

@@ -68,10 +68,10 @@ void ASpcPlayerControllerBase::MoveRight(float Value)
 void ASpcPlayerControllerBase::Attack()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attack"));
-	ASpcBullet* NewBullet = GetWorld()->SpawnActor<ASpcBullet>(Spacecraft->bullet,
-	                                                           Spacecraft->SpriteComponent->GetComponentLocation() +
-	                                                           FVector(0, 0, 25),
-	                                                           Spacecraft->SpriteComponent->GetComponentRotation());
+	const ASpcBullet* NewBullet = GetWorld()->SpawnActor<ASpcBullet>(Spacecraft->bullet,
+	                                                                 Spacecraft->SpriteComponent->GetComponentLocation() +
+	                                                                 FVector(0, 0, 25),
+	                                                                 Spacecraft->SpriteComponent->GetComponentRotation());
 
 	NewBullet->SpriteComponent->AddImpulse(FVector(0, 0, ImpulseBullet));
 }

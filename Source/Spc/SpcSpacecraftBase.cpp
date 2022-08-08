@@ -19,8 +19,7 @@ ASpcSpacecraftBase::ASpcSpacecraftBase()
 	CameraBoom->SetupAttachment(SpcRoot);
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	
-	// SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapBegin);
-	// SphereComponent->OnComponentEndOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapEnd);
+
 
 	SpriteComponent->SetupAttachment(SpcRoot);
 }
@@ -30,6 +29,9 @@ ASpcSpacecraftBase::ASpcSpacecraftBase()
 void ASpcSpacecraftBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapBegin);
+	// SphereComponent->OnComponentEndOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapEnd);
 }
 
 // Called every frame
