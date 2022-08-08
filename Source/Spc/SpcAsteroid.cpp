@@ -4,6 +4,7 @@
 #include "SpcAsteroid.h"
 
 #include "EngineUtils.h"
+#include "SpcSpacecraft.h"
 
 // Sets default values
 ASpcAsteroid::ASpcAsteroid()
@@ -39,7 +40,6 @@ void ASpcAsteroid::BeginPlay()
 			}
 		}
 	}
-
 }
 
 void ASpcAsteroid::OnConstruction(const FTransform& Transform)
@@ -57,4 +57,21 @@ void ASpcAsteroid::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
                                   UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
                                   const FHitResult& SweepResult)
 {
+	if (OtherActor->ActorHasTag(FName("Player")))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Yes Tag"));
+		ASpcSpacecraft* spc = Cast<ASpcSpacecraft>(OtherActor);
+		if (spc)
+		{
+			spc->Destroy();
+		}
+	}
+	else if (OtherActor->ActorHasTag(FName("Bullet.Small")))
+	{
+		Destroy();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not Tag"));
+	}
 }

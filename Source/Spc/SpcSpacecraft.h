@@ -23,4 +23,5 @@ public:
 
 	UPROPERTY(EditAnywhere, Category="Bullet")
 	TSubclassOf<ASpcBullet> bullet;
+	
 };

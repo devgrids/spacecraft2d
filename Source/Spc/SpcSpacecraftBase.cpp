@@ -18,7 +18,6 @@ ASpcSpacecraftBase::ASpcSpacecraftBase()
 
 	CameraBoom->SetupAttachment(SpcRoot);
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
-	
 
 
 	SpriteComponent->SetupAttachment(SpcRoot);
@@ -32,6 +31,8 @@ void ASpcSpacecraftBase::BeginPlay()
 
 	// SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapBegin);
 	// SphereComponent->OnComponentEndOverlap.AddDynamic(this, &ASpcSpacecraftBase::OnOverlapEnd);
+
+	Tags.Add(FName("Player"));
 }
 
 // Called every frame

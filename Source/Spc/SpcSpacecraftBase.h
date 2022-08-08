@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/Pawn.h"
 #include "PaperSpriteComponent.h"
 #include "Components/BoxComponent.h"
@@ -47,7 +48,8 @@ public:
 	
 	//*****************************************************************************
 
-	bool bIsLimitBorder = false;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTag Tag;
 
 	//*****************************************************************************
 
