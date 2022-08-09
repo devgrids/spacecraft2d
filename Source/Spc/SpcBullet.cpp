@@ -7,7 +7,6 @@
 ASpcBullet::ASpcBullet()
 {
 	SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));
-	
 }
 
 // Called when the game starts or when spawnedda s
@@ -16,6 +15,8 @@ void ASpcBullet::BeginPlay()
 	Super::BeginPlay();
 
 	SpriteComponent->OnComponentBeginOverlap.AddDynamic(this, &ASpcBullet::OnOverlapBegin);
+
+	Tags.Add("Bullet.Small");
 }
 
 // Called every frame

@@ -59,19 +59,14 @@ void ASpcAsteroid::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 {
 	if (OtherActor->ActorHasTag(FName("Player")))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Yes Tag"));
-		ASpcSpacecraft* spc = Cast<ASpcSpacecraft>(OtherActor);
-		if (spc)
+		// UE_LOG(LogTemp, Warning, TEXT("Yes Tag"));
+		if (const ASpcSpacecraft* spc = Cast<ASpcSpacecraft>(OtherActor); IsValid(spc))
 		{
-			spc->Destroy();
+			if (spc->SpriteComponent->ComponentTags[0].IsEqual(FName("Ship")))
+				spc->SpriteComponent->DestroyComponent();
 		}
 	}
-	else if (OtherActor->ActorHasTag(FName("Bullet.Small")))
-	{
-		Destroy();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Not Tag"));
-	}
+
+	Destroy();
+	// UE_LOG(LogTemp, Warning, TEXT("Not Tag"));
 }

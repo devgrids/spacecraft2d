@@ -37,19 +37,22 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	USceneComponent* SpcRoot{nullptr};
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	class USpringArmComponent* CameraBoom{nullptr};
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	class UCameraComponent* FollowCamera{nullptr};
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	// class USpringArmComponent* CameraBoom{nullptr};
+	//
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	// class UCameraComponent* FollowCamera{nullptr};
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UPaperSpriteComponent* SpriteComponent{nullptr};
-	
+
 	//*****************************************************************************
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FGameplayTag Tag;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTagContainer TagContainer;
 
 	//*****************************************************************************
 
@@ -64,6 +67,6 @@ public:
 	//*****************************************************************************
 
 
-	FORCEINLINE USpringArmComponent* GetSpringArmComponent() const { return CameraBoom; }
-	FORCEINLINE UCameraComponent* GetCameraComponent() const { return FollowCamera; }
+	// FORCEINLINE USpringArmComponent* GetSpringArmComponent() const { return CameraBoom; }
+	// FORCEINLINE UCameraComponent* GetCameraComponent() const { return FollowCamera; }
 };

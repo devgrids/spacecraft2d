@@ -10,14 +10,14 @@
 ASpcSpacecraftBase::ASpcSpacecraftBase()
 {
 	SpcRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
-	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+	// CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	// FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));
 
 	RootComponent = SpcRoot;
 
-	CameraBoom->SetupAttachment(SpcRoot);
-	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
+	// CameraBoom->SetupAttachment(SpcRoot);
+	// FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 
 
 	SpriteComponent->SetupAttachment(SpcRoot);
