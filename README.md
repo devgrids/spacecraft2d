@@ -2,7 +2,7 @@
 
 ## Abstract
 
-.............................
+Simple spaceship shooting game
 
 ## Branches
 
